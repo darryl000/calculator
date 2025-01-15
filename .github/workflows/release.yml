@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     tags:
-      - '*'
+      - "*"
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v2
         with:
-          go-version: '1.19'
+          go-version: "1.19"
 
       - name: Install GoReleaser
         run: |
@@ -27,13 +27,7 @@ jobs:
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKERHUB_darryl443 }}
-          password: ${{ secrets.DOCKERHUB_docker login -u darryl443 }}
 
       - name: Build and push Docker image
         run: |
           TAG=$(git describe --tags)
-          docker build -t ${{ secrets.DOCKERHUB_darryl44 }}/${{ secrets.GITHUB_REPOSITORY }}:$TAG .
-          docker push ${{ secrets.DOCKERHUB_darryl44 }}/${{ secrets.GITHUB_REPOSITORY }}:$TAG
-
